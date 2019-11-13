@@ -1,0 +1,21 @@
+﻿@page
+@using Microsoft.AspNetCore.Mvc.RazorPages
+@model IndexModel
+
+@functions {
+
+    public class IndexModel : PageModel
+    {
+        public void OnGet()
+        {
+            ViewData["Title"] = "Fileforce Front-end Challenge";
+        }
+    }
+
+}
+
+<h4>Select sample video:</h4>
+<ul>
+    <li><a href="@Url.Page("Video", new{fileId="video-0001"})">Sample Video #1</a></li>
+    <li><a href="@Url.Page("Video", new{fileId="video-0002"})">Sample Video #2</a></li>
+</ul>

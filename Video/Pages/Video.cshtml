@@ -1,0 +1,57 @@
+﻿@page
+@using Microsoft.AspNetCore.Mvc.RazorPages
+@model VideoModel
+
+@functions {
+
+    public class VideoModel : PageModel
+    {
+        public string FileId { get; set; }
+
+        public void OnGet([FromQuery]string fileId)
+        {
+            FileId = fileId;
+            ViewData["Title"] = FileId + " - Object Recognition";
+        }
+    }
+
+}
+
+<!-- ------------------------------- -->
+<!-- TODO: write your HTML code here -->
+<!-- ------------------------------- -->
+
+<script>
+
+    "use strict";
+
+    const apiEndpoint = '/api/data/video';
+    var fileId = '@Model.FileId';
+
+    // For the reference,
+    // the following sample code outputs
+    // required REST API URLs to the console
+
+    // MP4 video URL
+    var videoURL = `${apiEndpoint}/${fileId}/mp4`;
+    console.log(videoURL);
+
+    // label JSON model URL
+    var labelsUrl = `${apiEndpoint}/${fileId}/labels`;
+    console.log(labelsUrl);
+
+    // person JSON model URL
+    var personsUrl = `${apiEndpoint}/${fileId}/persons`;
+    console.log(personsUrl);
+
+    // face images
+    var faceImageUrlPrefix = `${apiEndpoint}/${fileId}/faces/`;
+    var faceImage0Url = faceImageUrlPrefix + '0';
+    console.log(faceImage0Url);
+    var faceImage1Url = faceImageUrlPrefix + '1';
+    console.log(faceImage1Url);
+    // ...
+
+    // TODO: write additional initialization code here
+
+</script>
