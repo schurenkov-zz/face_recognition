@@ -2,8 +2,10 @@
 
 ## Given
 
-- A simple "ASP.NET Core 2.1" project that can be open in either "Visual Studio 2017/2019" (open Video.sln and press *Start* button) or in "Visual Studio Code" (open Video folder, go to Debug tab and start *.NET Core Launch (web)*).
-- If you use "Visual Studio Code", please make sure that you have installed *.NET Core 2.1 SDK* from https://dotnet.microsoft.com/download/dotnet-core/2.1 for your OS.
+- A simple "ASP.NET Core 2.1" project that can be open in
+    - "Visual Studio 2017/2019" (open Video.sln and press *Start* button)
+    - "Visual Studio Code" (open Video folder, go to Debug tab and start *.NET Core Launch (web)*).
+- If you use "Visual Studio Code", please make sure that you have installed *"C#"* extension as well as *.NET Core 2.1 SDK* from https://dotnet.microsoft.com/download/dotnet-core/2.1 for your OS.
 - When started, the project automatically runs a new web server, accessible via URL: http://localhost:5000/
 - The server exposes the following resources:
     - Index page: http://localhost:5000/
