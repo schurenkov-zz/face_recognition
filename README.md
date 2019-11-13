@@ -40,8 +40,8 @@
 - Use of React to render UI is welcome, however, please refrain from using other JS libraries (jQuery, Zepto, etc) or 3rd-party React components.
 - Since the project is very simple in terms of layout and design, please refrain from using CSS frameworks (Bootstrap, Foundation, etc).
 - The solution must work in the latest versions of Firefox, Chrome and Edge without any major visual differences.
-- You should use **git** to gradually commit your work into the provided repository.
-- Commit summary must be written in English and should reflect your usual work style.
-- **Please do not synchronize/push the repository to public services**, like github and **keep it local**.
-- Feel free to ask any question related to the development environment (.NET Core) or challenge requirements.
+- You must use **git** to gradually commit your work into the provided repository.
+- *Summary* text for git commits must be written in English and should reflect your usual work style.
+- **Please do not synchronize/push the repository to public services (like Github)** and **keep it local**.
+- Feel free to ask any question related to the development environment setup or challenge requirements.
 - Good luck!
