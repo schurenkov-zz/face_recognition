@@ -16,6 +16,7 @@ module.exports = {
         filename: 'site.js',
     },
     devtool: 'source-map',
+    watch: true,
     module: {
         rules: [
             {
@@ -37,5 +38,11 @@ module.exports = {
                 ],
             },
         ],
+    },
+    resolve: {
+        extensions: ['*', '.ts', '.tsx', '.js', '.jsx'],
+        alias: {
+            src: PATHS.src,
+        },
     },
 }

@@ -1,0 +1,55 @@
+body{
+  margin: 0;
+  padding: 0;
+}
+.wrap{
+  display: flex;
+  background: #313131;
+  &__video{
+    width: 70%;
+    &-controls{
+      progress{
+        width: 100%;
+      }
+    }
+    video{
+      width: 100%;
+    }
+  }
+  &__panel{
+    width: 30%;
+    &-header{
+      display: flex;
+      align-items: center;
+      width: 100%;
+      background: #4e4e4e;
+      >div{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        width: 50%;
+        border-bottom: 2px solid #51d2d3;
+        p{
+          color: #fff;
+        }
+      }
+    }
+    &-active{
+      background: #51d2d3;
+    }
+    &-labels{
+      display: flex;
+      flex-wrap: wrap;
+    }
+    &-label{
+      background: #51d2d3;
+      padding: 5px;
+      margin: 5px;
+    }
+    &-title{
+      padding: 5px;
+      margin: 5px;
+    }
+  }
+}
