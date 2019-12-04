@@ -52,9 +52,8 @@ const Video: FC<IProps> = ({ personsUrl: { Timestamps, FrameStep }, marks }) => 
   };
 
   const handlerProgress = event => {
-    refVideo.current.currentTime = (event.pageX * event.target.max) / event.target.offsetWidth;
+    refVideo.current.currentTime = ((event.pageX - 20) * event.target.max) / event.target.offsetWidth;
     clearInterval(timerInterval.current);
-
     useTimer(Math.floor((refVideo.current.currentTime * 1000) / FrameStep) * FrameStep);
   };
 
