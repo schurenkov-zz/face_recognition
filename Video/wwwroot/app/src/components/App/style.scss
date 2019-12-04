@@ -1,19 +1,55 @@
 body{
   margin: 0;
-  padding: 0;
+  padding: 20px;
+  overflow: hidden;
+  background: #313131;
+  a, h4{
+    color: #fff;
+  }
 }
 .wrap{
   display: flex;
-  background: #313131;
+  justify-content: space-between;
+  height: 100vh;
   &__video{
-    width: 70%;
+    width: 69%;
+    position: relative;
     &-controls{
+      margin: 10px 0;
+      padding: 2px 0;
+      position: relative;
       progress{
         width: 100%;
+        background: #51d2d3;
+        &::-webkit-progress-value{
+          background: #51d2d3;
+        }
+      }
+      &-mark{
+        top: 0;
+        position: absolute;
+        height: 100%;
+        background: #fff;
       }
     }
     video{
       width: 100%;
+    }
+    &-square{
+      position: absolute;
+      border: 1px solid;
+      transition: 83ms ease-in-out;
+    }
+    &-persons{
+      position: absolute;
+      left: 10px;
+      top: 10px;
+      p{
+        font-size: 16px;
+        font-weight: bold;
+        color: #51d2d3;
+        margin: 0;
+      }
     }
   }
   &__panel{
@@ -27,29 +63,77 @@ body{
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 20px;
         width: 50%;
         border-bottom: 2px solid #51d2d3;
+        transition: 0.5s ease-in-out;
+        cursor: pointer;
         p{
           color: #fff;
+          font-weight: bold;
+          font-size: 20px;
+        }
+        &:hover{
+          background: #51d2d3;
         }
       }
+      &_active{
+        background: #51d2d3;
+      }
     }
-    &-active{
-      background: #51d2d3;
-    }
+
     &-labels{
       display: flex;
       flex-wrap: wrap;
+      padding: 20px 0;
+      &_label{
+        background: #51d2d3;
+        padding: 5px;
+        margin: 5px;
+        transition: 0.3s ease-in-out;
+        border-radius: 3px;
+        color: #fff;
+        cursor: pointer;
+        border: 1px solid transparent;
+        &:hover, &-active{
+          border: 1px solid #51d2d3;
+          background: transparent;
+        }
+      }
+      &_text{
+        padding: 5px;
+        margin: 5px;
+        color: #fff;
+      }
     }
-    &-label{
-      background: #51d2d3;
-      padding: 5px;
-      margin: 5px;
-    }
-    &-title{
-      padding: 5px;
-      margin: 5px;
+
+
+    &-faces{
+      display: flex;
+      flex-wrap: wrap;
+      >div{
+        margin: 10px 10px 10px 0;
+        position: relative;
+        img{
+          width: 100px;
+          height: 100px;
+          object-fit: cover;
+          object-position: center;
+          border: 2px solid transparent;
+        }
+        p{
+          position: absolute;
+          top: 5px;
+          left: 5px;
+          color: #51d2d3;
+          margin: 0;
+          font-weight: bold;
+        }
+      }
+      &_active{
+        border: 2px solid #51d2d3;
+      }
     }
   }
 }
+
+
