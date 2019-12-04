@@ -1,6 +1,5 @@
 import React, { FC, useEffect, useRef, useState } from 'react';
-import IProps, { IStyles } from './type';
-import {IBoundingBox, ILandmark} from "../App/type";
+import IProps from './type';
 
 const Video: FC<IProps> = ({ personsUrl: { Timestamps, FrameStep }, marks }) => {
   const refVideo = useRef(null);
@@ -13,13 +12,13 @@ const Video: FC<IProps> = ({ personsUrl: { Timestamps, FrameStep }, marks }) => 
     const video = refVideo.current;
 
     video.addEventListener('playing', findTimestampKey);
-    video.addEventListener('pause', clearTimerInterval);
+    video.addEventListener('pause', () => clearInterval(timerInterval.current));
     video.addEventListener('timeupdate', updateProgress);
     video.addEventListener('loadedmetadata', loadVideo);
 
     return () => {
       video.removeEventListener('playing', findTimestampKey);
-      video.removeEventListener('pause', clearTimerInterval);
+      video.removeEventListener('pause', () => clearInterval(timerInterval.current));
       video.removeEventListener('timeupdate', updateProgress);
       video.removeEventListener('loadedmetadata', loadVideo);
     };
@@ -54,24 +53,20 @@ const Video: FC<IProps> = ({ personsUrl: { Timestamps, FrameStep }, marks }) => 
 
   const handlerProgress = event => {
     refVideo.current.currentTime = (event.pageX * event.target.max) / event.target.offsetWidth;
-    clearTimerInterval();
+    clearInterval(timerInterval.current);
 
     useTimer(Math.floor((refVideo.current.currentTime * 1000) / FrameStep) * FrameStep);
   };
 
   const handlerMarkerClick = (time: number) => {
     refVideo.current.currentTime = time / 1000;
-    clearTimerInterval();
-    useTimer(Math.floor(time / FrameStep) * FrameStep);
-  };
-
-  const clearTimerInterval = () => {
     clearInterval(timerInterval.current);
+    useTimer(Math.floor(time / FrameStep) * FrameStep);
   };
 
   const styles = (
     { Height, Width, Left, Top, X, Y }: any,
-    style?: { borderColor?: string; width?: number; height?: number; background?: string }
+    style?: { borderColor?: string; width?: number; height?: number; background?: string; borderRadius?: string }
   ) => {
     const video = refVideo.current;
 
@@ -120,13 +115,13 @@ const Video: FC<IProps> = ({ personsUrl: { Timestamps, FrameStep }, marks }) => 
   return (
     <div className="wrap__video">
       <div ref={refVideoContainer} className="wrap__video-container">
-        <video ref={refVideo} src={window['videoURL']} controls={true} />
+        <video ref={refVideo} src={window.videoURL} controls={true} />
         {Timestamps &&
           Timestamps[timer] &&
           Timestamps[timer].map(({ BoundingBox, Face, Index }, i) => (
             <div key={Index}>
               {BoundingBox && (
-                <div className="wrap__video-square" style={styles(BoundingBox, { borderColor: '#000' })} />
+                <div className="wrap__video-square" style={styles(BoundingBox, { borderColor: '#51d2d3' })} />
               )}
               {Face && (
                 <>
@@ -136,13 +131,13 @@ const Video: FC<IProps> = ({ personsUrl: { Timestamps, FrameStep }, marks }) => 
                       <div
                         key={l.Type.Value}
                         className="wrap__video-square"
-                        style={styles(l, { width: 2, height: 2, background: '#000' })}
+                        style={styles(l, { width: 2, height: 2, background: '#51d2d3', borderRadius: '50%' })}
                       />
                     ))}
                 </>
               )}
               {Index !== null && (
-                <div className="wrap__video-persons" style={{ top: 15 * i + 'px' }}>
+                <div className="wrap__video-persons" style={{ top: `${15 * i}px` }}>
                   <p>Person: {Index}</p>
                 </div>
               )}

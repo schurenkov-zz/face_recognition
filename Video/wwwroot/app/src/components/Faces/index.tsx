@@ -15,7 +15,7 @@ const Faces: FC<IProps> = ({ persons, handlerShowMarks }) => {
         persons.map(p => (
           <div key={p.PersonIndex} onClick={() => handlerClick(p)}>
             <img
-              src={window['faceImageUrlPrefix'] + [p.PersonIndex]}
+              src={window.faceImageUrlPrefix + [p.PersonIndex]}
               alt=""
               className={cn({ 'wrap__panel-faces_active': active === p.PersonIndex })}
             />

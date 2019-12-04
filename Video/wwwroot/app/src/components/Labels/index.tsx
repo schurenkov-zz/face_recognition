@@ -10,7 +10,7 @@ const Labels: FC<IProps> = ({ handlerShowMarks }) => {
   const [active, useActive] = useState<null | string>(null);
 
   useEffect(() => {
-    axios.get(window['labelsUrl']).then(res => {
+    axios.get(window.labelsUrl).then(res => {
       useLabels(res.data);
       useLoad(false);
     });

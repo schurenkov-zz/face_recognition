@@ -1,7 +1,6 @@
 body{
   margin: 0;
   padding: 20px;
-  overflow: hidden;
   background: #313131;
   a, h4{
     color: #fff;
@@ -36,8 +35,10 @@ body{
       width: 100%;
     }
     &-square{
+      top: 0;
+      left: 0;
       position: absolute;
-      border: 1px solid;
+      border: 2px solid;
       transition: 83ms ease-in-out;
     }
     &-persons{

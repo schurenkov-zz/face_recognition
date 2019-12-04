@@ -9,7 +9,7 @@ const App = () => {
   const [personsUrl, usePersonsUrl] = useState<IPersonsUrl>({ PersonTimeSpans: [], FrameStep: 0, Timestamps: {} });
   const [marks, useMarks] = useState<number[]>([]);
   useEffect(() => {
-    axios.get(window['personsUrl']).then(r => {
+    axios.get(window.personsUrl).then(r => {
       usePersonsUrl(r.data);
     });
   }, []);
